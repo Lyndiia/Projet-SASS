@@ -1,0 +1,127 @@
+header {
+    color: $color1;
+    position: relative;
+    min-height: 100vh;
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        @include center;
+        min-height: 100vh;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: headerAnim 1.5s forwards;
+
+        @keyframes headerAnim {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+        }
+        
+        h1 {
+            @include title;
+            font-size: 4rem;
+            letter-spacing: 6px;
+            margin-bottom: 0;
+
+            @media screen and (max-width: 750px) {
+                font-size: 2.5rem;
+            }
+        }
+    
+        p {
+            font-style: italic;
+           margin: 40px auto 60px;
+           width: 85%;
+        }
+    
+        .arrow {
+            height: 60px;
+            width: 60px;
+            border-radius: 50px;
+            border: 2px solid $color1;
+            font-size: 1.2rem;
+            @include center;
+
+        }
+    }
+        
+    nav {
+        width: 80%;
+        background: rgba(255, 255, 255, 0.251);
+        display: flex;
+        justify-content: space-between;
+        height: 65px;
+        z-index: 100;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+       
+        ul {
+            display: flex;
+            align-items: center;
+        }
+    
+        
+        .leftpart {
+            width: 70%;
+
+            @media screen and (max-width: 750px){
+                width: 100%;
+            }
+            &:hover li:not(:hover){
+                background: none;
+                color: $color1;
+            }
+
+            li {
+                @include title;
+                font-size: 0.7rem;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                @media screen and (max-width: 750px) {
+                    font-size: 0.7rem;
+                }
+                
+                &:first-child {
+                    background: $color1;
+                    color: $color2;
+                }
+                &:hover {
+                    background: $color1;
+                    color: $color2;
+                }
+            }
+             
+        }
+    
+        .rightpart {
+            width: 30%;
+            font-size: 1.1rem;
+            min-width: 100px;
+            max-width: 300px;
+            display: flex;
+            justify-content: space-between;
+            margin-right: 10px;
+
+            @media screen and (max-width: 750px) {
+                display: none;
+            }
+
+            li {
+                transition: 0.15s;
+                cursor: pointer;
+                
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }    
+        }
+    }
+}
